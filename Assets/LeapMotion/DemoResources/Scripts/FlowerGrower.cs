@@ -40,9 +40,11 @@ public class FlowerGrower : MonoBehaviour
     //记录花的状态
     private bool growing_ = true;
     private bool dieing_ = false;
+    FlowerBloom flowerBloom;
 
     void Start()
     {
+        flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
         flower_head_scale_ = flowerHead.localScale;//记录花蕾自身缩放
         light_source_intensity_ = lightSource.intensity;//灯光
         flowerHead.localScale = Vector3.zero;//设置花中心自身缩放为0
@@ -123,9 +125,14 @@ public class FlowerGrower : MonoBehaviour
             growthProgress = Mathf.Clamp(growthProgress - Time.deltaTime * deathRate, 0.0f, 1.0f);
         else if (growing_)//生长
             growthProgress = Mathf.Clamp(growthProgress + Time.deltaTime * growthRate, 0.0f, 1.0f);
-        //花生长
-        SetSizes();
+        if (flowerBloom && flowerBloom.phase_ != 1)
+        {
+            print("花生长");
+            //花生长
+            SetSizes();
+        }
         //生长度达到1开启花
+
         if (growthProgress == 1.0f && flowerToBloom != null)
             flowerToBloom.open = true;
     }

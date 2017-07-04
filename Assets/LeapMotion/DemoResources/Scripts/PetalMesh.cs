@@ -27,7 +27,7 @@ public class PetalMesh : MonoBehaviour
 
     void Start()
     {
-        flowerBloom = GetComponentInParent<FlowerBloom>();
+        flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
         GetComponent<MeshFilter>().mesh = new Mesh();
         InitMesh();
     }
@@ -36,6 +36,7 @@ public class PetalMesh : MonoBehaviour
     {
         if (flowerBloom && flowerBloom.phase_ != 1)
         {
+            print("petal");
             UpdateMesh();
             front_.MarkDynamic();
             front_.vertices = vertices_;

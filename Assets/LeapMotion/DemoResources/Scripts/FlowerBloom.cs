@@ -19,9 +19,7 @@ public class FlowerBloom : MonoBehaviour
     public float openTime = 1.0f;
     public float closeTime = 1.0f;
     public bool open = false;
-
     public HingeJoint[] pedals;
-
     public float phase_ = 1.0f;
 
     void Update()

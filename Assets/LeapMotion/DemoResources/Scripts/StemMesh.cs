@@ -41,8 +41,8 @@ public class StemMesh : MonoBehaviour
 
     void Update()
     {
-        if (flowerBloom && flowerBloom.phase_ != 1)
-        {
+        //if (flowerBloom && flowerBloom.phase_ != 1)
+        //{
             print("stem");
             UpdateMesh();
             MeshFilter filter = GetComponent<MeshFilter>();
@@ -51,7 +51,7 @@ public class StemMesh : MonoBehaviour
             filter.mesh.vertices = vertices_;
             filter.mesh.RecalculateBounds();
             filter.mesh.RecalculateNormals();
-        }
+        //}
     }
 
     public bool IsBroken()

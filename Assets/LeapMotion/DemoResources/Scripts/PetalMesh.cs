@@ -34,8 +34,8 @@ public class PetalMesh : MonoBehaviour
 
     void Update()
     {
-        if (flowerBloom && flowerBloom.phase_ != 1)
-        {
+        //if (flowerBloom && flowerBloom.phase_ != 1)
+        //{
             print("petal");
             UpdateMesh();
             front_.MarkDynamic();
@@ -53,7 +53,7 @@ public class PetalMesh : MonoBehaviour
 
             filter.mesh.CombineMeshes(combine, true, false);
             filter.mesh.RecalculateBounds();
-        }
+        //}
     }
 
     private void InitMesh()
